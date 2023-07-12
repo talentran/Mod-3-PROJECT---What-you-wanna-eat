@@ -2,7 +2,7 @@
 
 ##This is the idea of the app:
 
-We already have an [API for dishes](https://food-api-c4eu.onrender.com/), including the dish name, its country, and the main ingredients.
+We already have an [API for dishes](https://food-api-c4eu.onrender.com/), including the dish name, its country, and the main ingredients. [Link GitHub](https://github.com/talentran/Make-An-API).
 
 Create two input fields for users to fill in, including "Ingredients" and "Country". Also, include a submit button.
 Users can fill in one or both fields before submitting.
