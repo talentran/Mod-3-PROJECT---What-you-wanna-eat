@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [autoLogin, setAutoLogin] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = () => {
+    setLoading(true);
     fetch('http://localhost:8000/api/login', {
       method: 'POST',
       headers: {
@@ -19,13 +23,16 @@ const LoginForm = () => {
     })
       .then(response => response.json())
       .then(data => {
+        setLoading(false); 
         if (data.success) {
           console.log('Login successful');
+          navigate("/");
         } else {
           console.error(data.message);
         }
       })
       .catch(error => {
+        setLoading(false);
         console.error('An error occurred:', error);
       });
   };
@@ -40,8 +47,12 @@ const LoginForm = () => {
         <input type="checkbox" checked={autoLogin} onChange={e => setAutoLogin(e.target.checked)} />
       </label>
       <p>Forgot password?</p>
-      <button onClick={handleLogin}>Login</button>
-      <button>Sign Up</button>
+      <button onClick={handleLogin} disabled={loading}>
+        {loading ? 'Loading...' : 'Login'}
+      </button>
+      <Link to="/signup">
+        <button>Sign Up</button>
+      </Link>
     </div>
   );
 };

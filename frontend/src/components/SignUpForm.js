@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignUpForm.css';
 
 const SignUpForm = () => {
@@ -6,31 +7,37 @@ const SignUpForm = () => {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [agreeTerms, setAgreeTerms] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
-  const handleSignUp = () => {
-    fetch('http://localhost:8000/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username,
-        password,
-        email
+    const handleSignUp = () => {
+      setLoading(true);
+      fetch('http://localhost:8000/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          email
+        })
       })
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          console.log('Signup successful');
-        } else {
-          console.error(data.message);
-        }
-      })
-      .catch(error => {
-        console.error('An error occurred:', error);
-      });
-  };
+        .then(response => response.json())
+        .then(data => {
+          setLoading(false);
+          if (data.success) {
+            console.log('Signup successful');
+            navigate("/login");
+          } else {
+            console.error(data.message);
+          }
+        })
+        .catch(error => {
+          setLoading(false);
+          console.error('An error occurred:', error);
+        });
+    };
 
   return (
     <div className="sign-up-form">
@@ -42,7 +49,9 @@ const SignUpForm = () => {
         <input type="checkbox" checked={agreeTerms} onChange={e => setAgreeTerms(e.target.checked)} />
         Agreed to the Terms and Conditions
       </label>
-      <button onClick={handleSignUp}>Submit</button>
+      <button onClick={handleSignUp} disabled={loading}>
+        {loading ? 'Loading...' : 'Submit'}
+      </button>
     </div>
   );
 };

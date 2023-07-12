@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchForm from './components/SearchForm';
 import FoodList from './components/FoodList';
 import RandomFoodPicker from './components/RandomFoodPicker';
 import ExitOptions from './components/ExitOptions';
+import LoginForm from './components/LoginForm';
+import SignUpForm from './components/SignUpForm';
 import Spinner from './components/Spinner';
 import axios from 'axios';
 import './App.css';
 
-function App() {
+function HomePage() {
   const [foods, setFoods] = useState([]);
   const [search, setSearch] = useState({ ingredient: '', country: '' });
   const [sublist, setSublist] = useState([]);
@@ -87,12 +90,26 @@ function App() {
           <FoodList foods={foods} />
           {foods.length > 0 && <button onClick={handlePickForMe}>Pick for me</button>}
           {sublist.length > 0 && <RandomFoodPicker food={randomFood} onAgree={handleAgree} onChooseAgain={handleChooseAgain} onSkip={handleSkip} />}
-          {!showList && <button onClick={() => setShowList(true)}>Hiện danh sách</button>}
+          {!showList && <button onClick={() => setShowList(true)}>Show list</button>}
           {randomFood && <ExitOptions onThanks={handleThanks} onGoodbye={handleGoodbye} />}
         </>
       }
     </div>
   );  
+}
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
