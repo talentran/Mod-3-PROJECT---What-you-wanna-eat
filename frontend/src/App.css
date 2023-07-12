@@ -1,0 +1,62 @@
+body {
+  background-color: #800000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+input, button {
+  margin: 0.5rem;
+}
+
+button {
+  background-color: #fff;
+  color: #800000;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b30000;
+  color: #fff;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+.FoodItem {
+  background-color: #fff;
+  color: #800000;
+  border: 1px solid #800000;
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 1rem;
+  width: 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.FoodItem:hover {
+  transform: scale(1.05);
+}
+
+.FoodList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
