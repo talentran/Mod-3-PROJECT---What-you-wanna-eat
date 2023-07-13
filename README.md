@@ -46,4 +46,8 @@ Here are the steps to get the app up and running on your local machine:
 4. Start the application: `npm start`
 5. Open your web browser and visit `http://localhost:3000`.
 
+## Link to the deployed app
+
+You can visit the live application [here](https://app-what-you-wanna-eat.onrender.com).
+
 _The application is still in the building process and has yet complete._
