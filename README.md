@@ -40,7 +40,7 @@ If the eternal question of "What do you want for dinner?" has the power to turn 
 
 Here are the steps to get the app up and running on your local machine:
 
-1. Clone the repository from GitHub: `git clone [https://github.com/your-username/your-repository.git](https://github.com/talentran/Mod-3-PROJECT---What-you-wanna-eat)`
+1. Clone the repository from GitHub: `git clone https://github.com/talentran/Mod-3-PROJECT---What-you-wanna-eat`
 2. Navigate to the project directory: `cd your-repository`
 3. Install the dependencies: `npm install`
 4. Start the application: `npm start`
