@@ -1,6 +1,6 @@
 # "What do you wanna eat?"
 
-If the eternal question of "What do you want for dinner?" has the power to turn a romantic evening into a battleground of conflicting desires, fear not! Behold, the ultimate app designed to mend your love and bring harmony back to your relationship.
+If the eternal question of "What do you want for dinner?" has the power to turn a romantic evening into a battleground of conflicting desires, no worry! This is the ultimate app designed to mend your love and bring harmony back to your relationship.
 
 ![App Screenshot](https://i.ibb.co/42QhcpR/App-Screenshot.png)
 
